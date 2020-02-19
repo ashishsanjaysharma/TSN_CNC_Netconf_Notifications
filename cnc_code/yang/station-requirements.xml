@@ -1,0 +1,19 @@
+<sample xmlns="urn:station:requirements:1.0">
+    <config>    	  
+    	<DeviceName>Raspi_F</DeviceName>
+    	<DeviceType>EndSystem</DeviceType>
+    	<Period>10000</Period>
+    	<StreamID>flow1</StreamID>
+    	<StreamAddress>03:00:5E:A0:03:e9</StreamAddress>
+    	<MaxFrameSize>100</MaxFrameSize>
+    	<VlanId>1</VlanId>
+    	<Priority>1</Priority>
+    	<DeviceRole>talker</DeviceRole>
+    	<interface>
+    		<PortName>Raspi_P1Fa</PortName>
+    		<WindowStart>50600</WindowStart>
+    		<WindowEnd>179080</WindowEnd>
+    	</interface>
+    </config> 
+</sample>
+

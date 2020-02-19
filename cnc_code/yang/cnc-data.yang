@@ -1,0 +1,109 @@
+module cnc-data{
+	namespace "urn:cnc:data:1.0";
+  	prefix "cnc-data";
+
+  	organization "TUB";
+
+  	contact
+    "www.tu-berlin.de";
+
+  	description
+    "This module defines CNC Notification mechanism";
+
+  	grouping interface_data{
+  			description
+	      	"Gropuping station interface data to send CNC";
+	    	leaf interface-name {
+	      		type string;
+	      		description
+	        "interface name";
+	    	}
+
+		    leaf earliest-transmit-offset {
+		      type uint32;
+		      description
+	        "window start flows";
+		    }
+
+		    leaf latest-transmit-offset {
+		      type uint32;
+		      description
+	        "window end for flows";
+		    }
+
+	    }
+	 
+
+  	grouping station_data {
+	    description
+	      "Gropuping station data to send CNC";
+
+	    leaf DeviceName {
+	      type string;
+	      description
+	        "device name for flows";
+	    }
+
+	    leaf DeviceType {
+	      type string;
+	      description
+	        "device type for flows";
+	    }
+
+	    leaf max-latency {
+	      type uint32;
+	      description
+	        "max lat flows";
+	    }
+
+	    leaf stream-id-type {
+	      type string;
+	      description
+	        "stream id for flows";
+	    }
+
+	    leaf mac-address {
+	      type string;
+	      description
+	        "mac address for flows";
+	    }
+
+	    leaf max-frame-size {
+	      type uint16;
+	      description
+	        "frame size for flows";
+	    }
+
+	    leaf vlan-id {
+	      type uint16;
+	      description
+	        "vlan id for flows";
+	    }
+
+	    leaf priority-code-point {
+	      type uint8;
+	      description
+	        "priority for flows";
+	    }
+
+	    leaf DeviceRole {
+	      type string;
+	      description
+	        "device role for flows";
+	    }
+
+	    list interface{
+	    	key "interface-name";
+      		uses interface_data;
+      		description
+	        "interface list for flows";
+      	}
+    }  	
+      
+	notification cnc-notif {
+    	uses station_data;
+    	description
+	        "notify cnc for data of flows";
+	}
+
+}
